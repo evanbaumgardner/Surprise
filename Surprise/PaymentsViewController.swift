@@ -13,7 +13,7 @@ class PaymentsViewController: UIViewController, PayPalPaymentDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        PayPalMobile.preconnectWithEnvironment(PayPalEnvironmentNoNetwork)
+        PayPalMobile.preconnectWithEnvironment(PayPalEnvironmentSandbox)
     }
    
     @IBOutlet weak var nameField: UITextField?
@@ -34,15 +34,21 @@ class PaymentsViewController: UIViewController, PayPalPaymentDelegate {
         payment.currencyCode = "USD"
         payment.shortDescription = "Surprise Charge"
         
-        var didWeGetTheMoney = payment.processable
+        var canWeGetTheMoney = payment.processable
         
-        if(didWeGetTheMoney)
+        
+        if(canWeGetTheMoney)
         {
-            showSuccess()
+            let thePayPalViewControler = PayPalPaymentViewController(payment: payment, configuration: config, delegate: self);
+            
+            presentViewController(thePayPalViewControler, animated: true, completion: nil)
+
+//           showSuccess()
+            
         }
         else
         {
-            showBummer()
+//            showBummer()
         }
         
     }
@@ -74,11 +80,15 @@ class PaymentsViewController: UIViewController, PayPalPaymentDelegate {
     }
     
     func payPalPaymentViewController(paymentViewController: PayPalPaymentViewController!, didCompletePayment completedPayment: PayPalPayment!) {
-        //self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        showSuccess()
     }
     
     func payPalPaymentDidCancel(paymentViewController: PayPalPaymentViewController!) {
-        //self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        showBummer()
     }
     
 }

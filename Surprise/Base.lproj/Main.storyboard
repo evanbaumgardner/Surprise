@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="309" y="408"/>
         </scene>
-        <!--paymentsView Controller-->
+        <!--PaymentsView Controller-->
         <scene sceneID="Yeg-eh-jeo">
             <objects>
-                <viewController id="hr5-TV-UEi" userLabel="paymentsView Controller" customClass="paymentsViewController" customModule="Surprise" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hr5-TV-UEi" userLabel="PaymentsView Controller" customClass="PaymentsViewController" customModule="Surprise" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SdQ-Xz-7Kg"/>
                         <viewControllerLayoutGuide type="bottom" id="FyA-3J-M7U"/>
@@ -106,7 +106,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="getPaid:" destination="hr5-TV-UEi" eventType="touchUpInside" id="Dpe-uL-hsL"/>
+                                    <action selector="getPaid:" destination="hr5-TV-UEi" eventType="touchUpInside" id="Cl1-NW-rAQ"/>
                                 </connections>
                             </button>
                         </subviews>
